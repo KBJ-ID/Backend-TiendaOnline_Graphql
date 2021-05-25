@@ -45,6 +45,7 @@ const resolversUsersQuery: IResolvers = {
                     status: true,
                     message: !passwordCheck ? 'Password y usuario incorrectos, sesion no iniciada' : 'Sesion iniciada',
                     token: !passwordCheck ? null :  new JWT().sign({ user }, EXPIRETIME.H24),
+                    user
                 };
             } catch (error) {
                 console.log(error);
