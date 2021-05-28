@@ -1,7 +1,8 @@
-"Interface especificar las propiedades obligatorias en la respuestas"
-interface Result {
+type ResultGenre implements Result{
     "Estado de la operación"
     status: Boolean!
     "Mensaje de la operación para dar feedback"
     message: String!
+    genre: Genre
+    genres: [Genre!]
 }

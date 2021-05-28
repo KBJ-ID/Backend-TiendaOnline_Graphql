@@ -41,8 +41,10 @@
     "graphql-playground-middleware-express": "^1.7.22",
     "graphql-tools": "^7.0.4",
     "jsonwebtoken": "^8.5.1",
+    "merge-graphql-schemas": "^1.7.8",
     "mongodb": "^3.6.6",
     "ncp": "^2.0.0",
+    "slugify": "^1.5.3",
     "ts-node": "^9.1.1"
   },
   "devDependencies": {
