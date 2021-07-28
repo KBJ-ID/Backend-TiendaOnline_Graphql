@@ -14,6 +14,7 @@ class GenresService extends ResolversOperationsService {
         const result = await this.list(this.collection, 'géneros', page, itemsPage);
         return { info: result.info, status: result.status, message: result.message, genres: result.items };
     }
+
     async details() {
         const result = await this.get(this.collection);
         return { status: result.status, message: result.message, genre: result.item };
@@ -46,6 +47,7 @@ class GenresService extends ResolversOperationsService {
         const result = await this.add(this.collection, genreObject, 'género');
         return { status: result.status, message: result.message, genre: result.item };
     }
+
     async modify() {
         const id = this.getVariables().id;
         const genre = this.getVariables().genre;
@@ -84,6 +86,23 @@ class GenresService extends ResolversOperationsService {
         const result = await this.del(this.collection, { id }, 'genero');
         return { status: result.status, message: result.message };
     }
+
+    async block() {
+        const id = this.getVariables().id;
+        if (!this.checkData(String(id) || '')) {
+            return {
+                status: false,
+                message: 'El ID del género no se ha especificado correctamente',
+                genre: null
+            };
+        }
+        const result = await this.update(this.collection, {id}, {active: false}, 'género');
+        return {
+            status: result.status,
+            message: (result.status) ? 'Bloqueado Correctamente' : 'No se ha bloqueado comprobar por favor'
+        };
+    }
+
     private checkData(value: string) {
         return (value === '' || value === undefined) ? false: true;
     }

@@ -15,6 +15,10 @@ const resolversGenreMutation: IResolvers = {
       // Añadimos la llamada al servicio
       return new GenresService(_, variables, context).delete();
     },
+    blockGenre(_, variables, context) {
+      // Añadimos la llamada al servicio
+      return new GenresService(_, variables, context).block();
+    },
   },
 };
 
